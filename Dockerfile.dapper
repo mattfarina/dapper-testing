@@ -1,0 +1,14 @@
+FROM registry.suse.com/bci/golang:1.21
+
+RUN zypper -n install git docker vim less file curl wget awk
+
+ENV DAPPER_ENV REPO TAG DRONE_TAG CROSS
+ENV DAPPER_SOURCE /go/src/github.com/mattfarina/dapper-testing
+ENV DAPPER_OUTPUT ./bin ./dist
+ENV DAPPER_DOCKER_SOCKET true
+ENV DAPPER_RUN_ARGS "-v webhook-pkg:/go/pkg -v webhook-cache:/root/.cache"
+ENV GOPATH /go
+WORKDIR ${DAPPER_SOURCE}
+
+ENTRYPOINT ["./scripts/entry"]
+CMD ["ci"]

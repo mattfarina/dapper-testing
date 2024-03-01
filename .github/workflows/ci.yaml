@@ -1,0 +1,12 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+jobs:
+    container-test-job:
+        runs-on: ubuntu-latest
+        container:
+            image: rancher/dapper:v0.6.0
+        steps:
+            - name: dapper ci
+              run: dapper ci
