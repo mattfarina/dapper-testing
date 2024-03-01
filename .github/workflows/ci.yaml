@@ -8,5 +8,7 @@ jobs:
         container:
             image: rancher/dapper:v0.6.0
         steps:
+            - name: current directory
+              run: pwd
             - name: dapper ci
               run: dapper ci
