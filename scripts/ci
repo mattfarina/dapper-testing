@@ -1,0 +1,18 @@
+#! /bin/bash
+set -e
+
+cd $(dirname $0)/..
+
+echo Tidying up modules
+go mod tidy
+
+echo Verifying modules
+go mod verify
+
+if [ -n "$(git status --porcelain --untracked-files=normal)" ]; then
+    echo "Encountered dirty repo!"
+    exit 1
+fi
+
+echo "Running Test"
+go test ./...
