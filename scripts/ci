@@ -12,6 +12,7 @@ go mod verify
 if [ -n "$(git status --porcelain --untracked-files=normal)" ]; then
     git status --porcelain --untracked-files=normal
     ls -la
+    cat Dockerfile.*
     echo "Encountered dirty repo!"
     exit 1
 fi
