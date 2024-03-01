@@ -10,5 +10,7 @@ jobs:
         steps:
             - name: current directory
               run: pwd
+            - name: see files
+              run: ls
             - name: dapper ci
               run: dapper ci
