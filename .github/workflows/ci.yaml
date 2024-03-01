@@ -8,6 +8,8 @@ jobs:
         container:
             image: rancher/dapper:v0.6.0
         steps:
+            - name: Add Git
+              run: apk add -U git
             - name: Checkout code
               uses: actions/checkout@v4
             - name: current directory
