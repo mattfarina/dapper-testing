@@ -8,6 +8,8 @@ jobs:
         container:
             image: rancher/dapper:v0.6.0
         steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
             - name: current directory
               run: pwd
             - name: see files
