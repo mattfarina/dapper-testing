@@ -22,5 +22,9 @@ jobs:
               run: dapper ci
             - name: build dapper
               run: dapper build
+            - name: build dapper 2
+              run: dapper build
             - name: build straight
+              run: docker build .
+            - name: build straight 2
               run: docker build .
