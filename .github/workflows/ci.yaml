@@ -20,7 +20,7 @@ jobs:
               run: ls -la
             - name: dapper ci
               run: dapper ci
-            - name: build
-              run: docker build .
-            - name: build 2
+            - name: build dapper
+              run: dapper build
+            - name: build straight
               run: docker build .
